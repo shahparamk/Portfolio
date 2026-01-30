@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Param Shah - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .profile-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        nav a:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        nav a:hover {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        nav a span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: 90vh;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .hero-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .hero-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero-links a:hover {
+            color: #764ba2;
+            transform: translateX(5px);
+        }
+
+        .scroll-indicator {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .scroll-indicator .mouse {
+            width: 30px;
+            height: 50px;
+            border: 2px solid #667eea;
+            border-radius: 15px;
+            margin: 0 auto 10px;
+            position: relative;
+        }
+
+        .scroll-indicator .mouse::before {
+            content: '';
+            width: 4px;
+            height: 10px;
+            background-color: #667eea;
+            border-radius: 2px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scroll 2s infinite;
+        }
+
+        @keyframes scroll {
+            0%, 100% { top: 10px; opacity: 1; }
+            50% { top: 25px; opacity: 0; }
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image-placeholder::before {
+            content: '👤';
+            font-size: 120px;
+            opacity: 0.3;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        /* Projects Section */
+        .project {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: center;
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .project.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .project:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .project-image {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .project-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.5s ease;
+        }
+
+        .project-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image-placeholder::before {
+            content: '🖼️';
+            font-size: 80px;
+            opacity: 0.3;
+        }
+
+        .project-content {
+            flex: 1;
+        }
+
+        .project-content h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .project-meta span {
+            background-color: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .project-meta span:hover {
+            background-color: #667eea;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .impact-metric {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech-tag {
+            background-color: #dc3545;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tech-tag:hover {
+            background-color: #c82333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+        }
+
+        .problem-statement {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            border-radius: 5px;
+            color: #856404;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .skills-column h3 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        .skill-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background-color: #e9ecef;
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .skill-item h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .skill-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .skills-image {
+            margin-top: 30px;
+        }
+
+        .skills-image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills-image-placeholder::before {
+            content: '💻';
+            font-size: 80px;
+            opacity: 0.3;
+        }
+
+        /* Experience Section */
+        .experience-container {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .experience-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .experience-content {
+            flex: 1;
+        }
+
+        .experience-content h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .experience-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .experience-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-content ul li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .experience-content ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-content ul li:hover {
+            transform: translateX(5px);
+        }
+
+        .experience-content ul li:hover::before {
+            transform: translateX(5px);
+        }
+
+        .experience-image {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .experience-image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-image-placeholder::before {
+            content: '🏢';
+            font-size: 100px;
+            opacity: 0.3;
+        }
+
+        /* Resume Button */
+        .resume-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .resume-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        /* Testimonials Section */
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .testimonial.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .testimonial-info h4 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .testimonial-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 50px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-item {
+            text-align: center;
+        }
+
+        .footer-item h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .footer-item p {
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .footer-item a {
+            color: #667eea;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-item a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .project, .project:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-container {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 15px 20px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="profile-icon" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">PS</div>
+        <nav>
+            <a href="#projects"><span>PROJECTS</span></a>
+            <a href="#about"><span>ABOUT</span></a>
+            <a href="#resume"><span>RESUME</span></a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm Param</h1>
+            <p>A full-stack developer and UX designer who believes the best technology feels invisible it just works, scales beautifully, and makes life easier. I create products where complex engineering meets delightful user experiences, from healthcare systems streamlining patient care to cloud infrastructure built for resilience, blending technical depth with design thinking.</p>
+            <div class="hero-links">
+                <a href="#projects">View My Work ></a>
+                <a href="#projects">Projects ></a>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse"></div>
+                <p>scroll</p>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-image-placeholder floating"></div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>PROJECTS</h2>
+        
+        <div class="project">
+            <div class="project-image">
+                <div class="project-image-placeholder">AWS Architecture Diagram</div>
+            </div>
+            <div class="project-content">
+                <h3>Cloud-Native Web Application:</h3>
+                <div class="project-meta">
+                    <span><strong>Role:</strong> Full-Stack Developer & Cloud Architect</span>
+                    <span><strong>Timeline:</strong> January 2023 - May 2023 (5 months)</span>
+                    <span><strong>Team Size:</strong> Individual Project</span>
+                </div>
+                <div class="impact-metric">99.9% uptime through automated CI/CD</div>
+                <div class="tech-stack">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">Terraform</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Jenkins</span>
+                </div>
+                <div class="problem-statement">
+                    <strong>Problem Statement:</strong> Legacy systems often struggle with scalability, reliability, and deployment delays, all of which can lead to potential downtime.
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="project-image">
+                <div class="project-image-placeholder">SecureHer Mobile App Screenshot</div>
+            </div>
+            <div class="project-content">
+                <h3>SecureHer - Emergency Response Mobile App:</h3>
+                <div class="project-meta">
+                    <span><strong>Role:</strong> Mobile Developer & UX Designer</span>
+                    <span><strong>Timeline:</strong> June 2023 - August 2023 (3 months)</span>
+                    <span><strong>Team Size:</strong> Individual Project</span>
+                </div>
+                <div class="impact-metric">Reduced emergency response time by 70% and connected users to emergency contacts within 5 seconds.</div>
+                <div class="tech-stack">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Android Studio</span>
+                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">Figma</span>
+                    <span class="tech-tag">Google Maps API</span>
+                </div>
+                <div class="problem-statement">
+                    <strong>Problem Statement:</strong> Many individuals feel vulnerable during emergencies. Traditional methods require unlocking phones, navigating contacts, and sending critical alerts when immediate help is needed.
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="project-image">
+                <div class="project-image-placeholder">RoomieSync Mobile App Screenshot</div>
+            </div>
+            <div class="project-content">
+                <h3>RoomieSync:</h3>
+                <div class="project-meta">
+                    <span><strong>Role:</strong> UI/UX Designer & Researcher</span>
+                    <span><strong>Timeline:</strong> September 2023 - December 2023 (4 months)</span>
+                    <span><strong>Team Size:</strong> 3 out of 4</span>
+                </div>
+                <div class="impact-metric">Improved roommate coordination by consolidating 8 apps into one, saving users 70% of their time.</div>
+                <div class="tech-stack">
+                    <span class="tech-tag">Figma</span>
+                    <span class="tech-tag">Adobe XD</span>
+                    <span class="tech-tag">User Research</span>
+                    <span class="tech-tag">UX/UI Analysis</span>
+                </div>
+                <div class="problem-statement">
+                    <strong>Problem Statement:</strong> Roommates often struggle with managing shared tasks, expenses, and communication, leading to misunderstandings, missed payments, and conflicts. This negatively impacts their living experience and relationships.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Expertise Section -->
+    <section id="about">
+        <h2>Skills & Expertise</h2>
+        <div class="skills-container">
+            <div class="skills-column">
+                <h3>Core Competencies</h3>
+                <div class="skill-item">
+                    <h4>Full-Stack Development</h4>
+                    <p>Building scalable web applications with modern frameworks, databases, and cloud systems.</p>
+                </div>
+                <div class="skill-item">
+                    <h4>Mobile Development</h4>
+                    <p>Designing and developing native mobile applications for iOS and Android platforms.</p>
+                </div>
+                <div class="skill-item">
+                    <h4>Cloud Architecture</h4>
+                    <p>Designing and implementing robust, secure, and cost-effective cloud solutions on AWS and Azure.</p>
+                </div>
+                <div class="skill-item">
+                    <h4>UI/UX Design</h4>
+                    <p>Creating intuitive and engaging user interfaces with a focus on user-centered design principles.</p>
+                </div>
+            </div>
+            <div class="skills-column">
+                <h3>Tools & Technologies</h3>
+                <div class="skill-item">
+                    <h4>Languages</h4>
+                    <p>JavaScript, Python, Java, C++, SQL, HTML, CSS</p>
+                </div>
+                <div class="skill-item">
+                    <h4>Frameworks</h4>
+                    <p>React, Node.js, Spring Boot, Django, Flask, Express.js</p>
+                </div>
+                <div class="skill-item">
+                    <h4>Cloud Platforms</h4>
+                    <p>AWS, Azure, Google Cloud Platform</p>
+                </div>
+                <div class="skill-item">
+                    <h4>Databases</h4>
+                    <p>PostgreSQL, MongoDB, MySQL, DynamoDB</p>
+                </div>
+                <div class="skill-item">
+                    <h4>DevOps & CI/CD</h4>
+                    <p>Docker, Kubernetes, Jenkins, Terraform, Git</p>
+                </div>
+                <div class="skill-item">
+                    <h4>Design & Prototyping</h4>
+                    <p>Figma, Adobe XD, Sketch, Miro</p>
+                </div>
+                <div class="skills-image">
+                    <div class="skills-image-placeholder">Code Editor View</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Experience Section -->
+    <section>
+        <h2>Industry Experience</h2>
+        
+        <!-- USTechBridge Experience -->
+        <div class="experience-container">
+            <div class="experience-content">
+                <h3>USTechBridge</h3>
+                <p style="color: #666; font-size: 14px; margin-bottom: 10px;">Boston, MA | Jan 2026–Present</p>
+                <p style="color: #667eea; font-weight: 600; margin-bottom: 20px;">Full-Stack Development Engineer - Internship</p>
+                <h4 style="margin-top: 30px; margin-bottom: 15px;">My Contribution</h4>
+                <ul>
+                    <li>Develop a multi-tenant LMS SaaS platform using Spring Boot, React/React Native, and AWS, supporting secure authentication, course management, dashboards, and payments.</li>
+                    <li>Deploy scalable cloud infrastructure with S3, Lambda, API Gateway, Amplify, and CI/CD pipelines for automated builds and releases.</li>
+                    <li>Integrate PayPal for payment processing and Twilio for SMS/WhatsApp notifications, improving operational automation.</li>
+                    <li>Follow Agile practices using Jira, Git, and Slack, contributing to mobile app and chatbot development.</li>
+                </ul>
+            </div>
+            <div class="experience-image">
+                <div class="experience-image-placeholder">USTechBridge LMS Platform</div>
+            </div>
+        </div>
+
+        <!-- Carelink Experience -->
+        <div class="experience-container">
+            <div class="experience-content">
+                <h3>Carelink</h3>
+                <p style="color: #666; font-size: 14px; margin-bottom: 10px;">Mumbai, India | Jun 2022–Nov 2023</p>
+                <p style="color: #667eea; font-weight: 600; margin-bottom: 20px;">Software Development Engineer</p>
+                <p style="margin-bottom: 20px;">Carelink is a leading healthcare technology company dedicated to connecting healthcare providers and empowering individuals to better manage their health.</p>
+                <h4 style="margin-top: 30px; margin-bottom: 15px;">My Contribution</h4>
+                <ul>
+                    <li>Designed and developed full-stack applications in healthcare and fintech using Java, ReactJS, Redux, NodeJS, and MySQL, improving system reliability and cross-platform usability.</li>
+                    <li>Built AI-powered healthcare features enabling 15+ doctors to remotely access patient history and prescriptions, reducing consultation retrieval time by 25% and enhancing virtual care delivery.</li>
+                    <li>Developed a real-time health monitoring dashboard tracking heart rate, breathing, oxygen levels, and activity, achieving 95% data synchronization accuracy between mobile apps and smart devices.</li>
+                    <li>Deployed and optimized backend services on AWS EC2 with RDS, achieving 98% uptime, while improving UI performance by 40% and automating data workflows using Python (NumPy, Pandas) to reduce manual effort by 70%.</li>
+                </ul>
+            </div>
+            <div class="experience-image">
+                <div class="experience-image-placeholder">Carelink Application Interface</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+        <h2>Resume</h2>
+        <div style="text-align: center; padding: 40px;">
+            <p style="font-size: 18px; color: #666; margin-bottom: 30px;">Download my complete resume to learn more about my experience, education, and technical skills.</p>
+            <a href="resume.pdf" class="resume-button" download>
+                <i class="fas fa-download"></i> Download Resume PDF
+            </a>
+            <div style="margin-top: 40px; padding: 30px; background-color: #f8f9fa; border-radius: 15px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">Quick Summary</h3>
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: #667eea; margin-bottom: 10px;">Education</h4>
+                    <p><strong>Northeastern University, Boston, MA</strong> - Master of Science in Information Systems (Aug 2024 - Dec 2026) | CGPA: 3.58/4.00</p>
+                    <p><strong>Mumbai University, India</strong> - Bachelor of Technology in Information Technology (Jun 2024) | CGPA: 3.95/4.00</p>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: #667eea; margin-bottom: 10px;">Technical Skills</h4>
+                    <p><strong>Languages:</strong> Java, TypeScript, Python, JavaScript, C++, Go, C#, SQL, Shell/Bash</p>
+                    <p><strong>Cloud/DevOps:</strong> Git, AWS, Terraform (IaC), GCP, Azure, Kubernetes, CI/CD, Docker, GitHub</p>
+                    <p><strong>Frameworks:</strong> Spring Boot, NodeJS, React, Flask, .NET Core, Vue.js</p>
+                    <p><strong>Databases:</strong> MySQL, PostgreSQL, MongoDB, AWS RDS, Pinecone, Qdrant</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section>
+        <h2>How others describe my work!</h2>
+        <div class="testimonial">
+            <div class="testimonial-header">
+                <div class="testimonial-avatar">AS</div>
+                <div class="testimonial-info">
+                    <h4>Akshay Shah</h4>
+                    <p>Software Engineer</p>
+                </div>
+            </div>
+            <div class="testimonial-text">
+                "Param brings both depth in full-stack development and the ability to collaborate effectively across teams. His attention to detail, commitment to testing and quality, and passion for building meaningful solutions would make him an invaluable addition to any engineering organization."
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-item">
+                <h4><i class="fas fa-map-marker-alt"></i> Location</h4>
+                <p>Boston MA</p>
+            </div>
+            <div class="footer-item">
+                <h4><i class="fas fa-envelope"></i> Email</h4>
+                <p><a href="mailto:shah.paramk@northeastern.edu">shah.paramk@northeastern.edu</a></p>
+                <p style="margin-top: 10px;"><a href="tel:+18573131485">(857)-313-1485</a></p>
+            </div>
+            <div class="footer-item">
+                <h4><i class="fas fa-link"></i> Connect</h4>
+                <div class="social-links">
+                    <a href="https://github.com/shahparamk" target="_blank" title="GitHub" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/paramshah12/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.15)';
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all projects, testimonials, and experience containers
+        document.querySelectorAll('.project, .testimonial, .experience-container').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add stagger animation to projects
+        const projects = document.querySelectorAll('.project');
+        projects.forEach((project, index) => {
+            project.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Add stagger animation to experience containers
+        const experiences = document.querySelectorAll('.experience-container');
+        experiences.forEach((exp, index) => {
+            exp.style.transitionDelay = `${index * 0.15}s`;
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImage = document.querySelector('.hero-image');
+            if (heroImage && scrolled < window.innerHeight) {
+                heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+
+        // Add typing effect to hero title (optional enhancement)
+        const heroTitle = document.querySelector('.hero h1');
+        if (heroTitle) {
+            const text = heroTitle.textContent;
+            heroTitle.textContent = '';
+            let i = 0;
+            const typeWriter = () => {
+                if (i < text.length) {
+                    heroTitle.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            };
+            // Uncomment to enable typing effect
+            // setTimeout(typeWriter, 500);
+        }
+    </script>
+</body>
+</html>

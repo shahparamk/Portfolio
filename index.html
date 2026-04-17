@@ -100,11 +100,13 @@
     .exp-vis{grid-column:1/-1;border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-top:4px;}
 
     /* PROJECTS */
-    .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+    .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch;}
     .pc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .3s;display:flex;flex-direction:column;}
     .pc:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4);}
     .pc.feat{grid-column:span 2;}
-    .pc-img{width:100%;overflow:hidden;position:relative;}
+    .pc-img{width:100%;overflow:hidden;position:relative;height:200px;}
+    .pc-img svg{width:100%;height:100%;display:block;}
+    .pc.feat .pc-img{height:260px;}
     .pc-body{padding:26px;flex:1;display:flex;flex-direction:column;}
     .pc-num{font-size:11px;color:var(--dim);letter-spacing:.1em;margin-bottom:10px;}
     .pc-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:9px;letter-spacing:-.4px;}
@@ -565,6 +567,10 @@
         <div class="pc-met"><i class="fas fa-shield-alt" style="font-size:10px"></i> Contacts notified within 2 seconds · Build time −30%</div>
         <div class="pc-stack"><span class="stag">Java</span><span class="stag">Android Studio</span><span class="stag">Google Maps API</span><span class="stag">Gradle</span><span class="stag">Maven</span><span class="stag">Figma</span></div>
         <div class="pc-links"><a href="https://github.com/shahparamk/SecureHerWomenSafety-" target="_blank" class="plink"><i class="fab fa-github"></i> GitHub</a></div>
+      </div>
+    </div>
+
+    <!-- RoomieSync -->
     <div class="pc reveal">
       <div class="pc-img">
         <svg viewBox="0 0 420 195" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
@@ -616,6 +622,11 @@
         <div class="pc-met"><i class="fas fa-clock" style="font-size:10px"></i> 75% coordination time saved · 90% task completion rate</div>
         <div class="pc-stack"><span class="stag">Figma</span><span class="stag">Adobe XD</span><span class="stag">User Research</span><span class="stag">UX/UI</span></div>
         <div class="pc-links"><a href="https://github.com/shahparamk/RoomieSync" target="_blank" class="plink"><i class="fab fa-github"></i> GitHub</a></div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <hr class="dv"/>
 
